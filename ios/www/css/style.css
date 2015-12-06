@@ -1,0 +1,278 @@
+/* signin page */
+.sign_content{
+    background-image:url("../img/bg.png");
+    background-position:100% 100%;
+}
+
+.logo_img{
+    width:70%;
+    margin-left:15%;
+    margin-top:70px;
+}
+
+.or_img{
+    width:90%;
+    margin-left:5%;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.fb_btn{
+    width:90%;
+    margin-left:5%;
+    margin-top:20px;
+}
+
+.signin_form{
+    width:90%;
+    margin-left:5%;
+}
+
+.signin_form .item-input{
+    background:#2e2f33;
+    border-color:#2e2f33;
+}
+
+
+.signin_form .item-input input{
+    color:white;
+}
+
+.signup_txt{
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:1em;
+}
+
+/* collect */
+.custom_bar{
+    background-color:black;
+    color:white;
+    border:0px !important;
+}
+
+.sub_header{
+    background-color:white;
+    padding:0px;
+    height:30px;
+}
+
+.subheader_row{
+    padding:0px;
+    text-align:center;
+    height:30px;
+}
+
+.header_row{
+    text-align:center;
+    width:100%;
+}
+
+.subheader_title{
+    color:white;
+    padding:0px;
+    background-color:#00da6e;
+    line-height:30px;
+    color:#00aa56;
+}
+
+.tab_actived{
+    margin-top:2px;
+    color:white;
+}
+
+.q_icon{
+    width:25px;
+    height:25px;
+}
+
+.profile_img{
+    width:25px;
+    height:25px;
+    border-radius:50%;
+}
+
+.c_logo {
+    width:20px;
+    height:20px;
+}
+
+.header_title{
+    font-size:2em;
+    font-weight:bold;
+    padding:0px;
+    margin-top:-2px;
+}
+
+.collect_btn{
+    width:80%;
+    margin-left:10%;
+    margin-top:40%;
+}
+.modal {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    left: 10%;
+    bottom: auto;
+    z-index: 10;
+    overflow: hidden;
+    min-height: 200px;
+    width: 80%;
+    background-color: #1d1d1f;
+    border-radius:10px;
+    color:white;
+}
+.modal_header{
+    background:#2c2d32;
+    text-align:center;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    color:white;
+    font-weight:bold;
+    height:35px;
+    line-height:35px;
+}
+.help_text{
+    color:#fefefe;
+    padding:10px;
+    
+}
+.modal_footer{
+    background-color:#00da6f;
+    color:white;
+    font-weight:bold;
+    text-align:center;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    height:35px;
+    line-height:35px;
+    
+}
+
+/* collect detail page */
+.detail_content{
+    background:#121315;
+}
+
+.done_btn{
+    border-radius:20px;
+    width:80%;
+    margin-left:10%;
+    margin-top:50%;
+    position:relative;
+    position:fixed !important;
+    bottom:15px;
+}
+
+.collect_list_item{
+    border-bottom:0px !important;
+    border-top:0px !important;
+}
+
+.collect_list_item:nth-child(odd){
+    background:#1a1b1e;
+}
+.collect_list_item:nth-child(even){
+    background:#121315;
+}
+
+/* reward page */
+.reward_list_item{
+    border-bottom:0px !important;
+    border-top:0px !important;
+    padding:0px;
+}
+
+.reward_list_item:nth-child(odd){
+    background:#121315;
+}
+.reward_list_item:nth-child(even){
+    background:#1a1b1e;
+}
+.reward_img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#00da6f;
+    padding:1px;
+}
+.reward_img_rect{
+    text-align:center;
+}
+
+.reward_title{
+    color:white;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+}
+.reward_credit{
+    color:#565656;
+    font-size:0.9em;
+}
+
+.loading_img{
+    width:80%;
+    margin-left:10%;
+    margin-top:40%;
+}
+
+.state_txt{
+    font-size:0.6em;
+    text-align:center;
+    position:relative;
+    bottom:22px;
+    width:65px;
+    color:white;
+    font-weight:bold;
+}
+
+.listprice_txt{
+    font-size:0.7em;
+    text-align:center;
+    position:absolute;
+    top:27px;
+    width:65px;
+    color:gray;
+}
+
+.salesprice_txt{
+    font-size:0.7em;
+    text-align:center;
+    position:absolute;
+    top:37px;
+    width:65px;
+    color:white;
+    font-weight:bold;
+}
+.middle_line{
+    width:45px;
+    margin-left:10px;
+    height:1px;
+    background-color:gray;
+    position:absolute;
+    top:36px;
+    z-index:999;
+}
+
+.col-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 5%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 5%;
+    -ms-flex: 0 0 5%;
+    flex: 0 0 5%;
+    max-width: 5%;
+    text-align:right;
+}
+
+.col-70 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 70%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 70%;
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%; }

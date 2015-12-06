@@ -1,0 +1,60 @@
+<ion-view view-title="Collect">
+    
+    <ion-content class="sign_content" scroll="false" on-swipe-left="onReward()">
+        <div class="bar bar-header custom_bar" style="background:black;">
+            <div class="row header_row">
+                <div class="col-25" style="text-align:left;" ng-click="openHelp()"><img src="img/q.png" class="q_icon"/></div>
+                <div class="col-50 header_title">
+                    <div class="row" style="padding:0px;">
+                        <div class="col">{{userInfo.currentcredits}}&nbsp;<img src="img/custom_logo.png" class="c_logo"/></div>
+                    </div>
+                </div>
+                <div class="col-25" style="text-align:right;">
+                    <a>
+                        <img class="profile_img" ng-src="{{userInfo.images.profile}}" err-src="img/logo.png">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-subheader sub_header" >
+            <div class="row subheader_row">
+                <div class="col-50 subheader_title tab_actived" style="border-right:1px solid #00aa56;">
+                    Collect
+                </div>
+                <div class="col-50 subheader_title" ng-click="onReward()">
+                    Rewards
+                </div>
+            </div>
+        </div>
+        <img class="loading_img" ng-src="img/Claimony_App_Collect_v3.gif" ng-if="collect.loading"/>
+        
+        <img class="collect_btn" src="img/Claimony_App_Collect_v3_before.png" ng-if="(!collect.loading)&&isDone" ng-click="onCollect()" />
+        
+        
+        <div style="width:100%; text-align:center;color:white;margin-top:20px; margin-top:95px;" ng-if="(isError == false) && (isDone == false)">You have earned</div>
+        <div style="width:100%; text-align:center; color:#00d46b;font-size:2em; margin-top:10px; margin-bottom:10px;" ng-if="(isError == false) && (isDone == false)">{{achievementscount}} <img src="img/green_logo.png" class="c_logo"/></div>
+        <ion-scroll zooming="false" direction="y" style="width:100%; height:60%;"  ng-if="(isError == false) && (isDone == false)">
+            <ion-list>
+                <ion-item class="collect_list_item" ng-repeat="item in collectList">
+                    <div class="row" style="padding:0px;">
+                        <div class="col-10"><img src="{{item.images.achieved}}" style="width:100%;"></div>
+                        <div class="col-70 reward_title" style="padding-top:5px;"><font style="color:white; padding-left:10px; font-size:1.2em; ">{{item.displayname}}</font></div>
+                        <div class="col-20" style="padding-top:5px;"><font style="color:white;">{{item.gainedcredits}}</font>&nbsp;<img src="img/custom_logo.png" style="width:15px; height:15px;"/></div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+        <div style="width:100%;text-align:center; margin-top:150px; color:white;"  ng-if="(isError == true) && (collect.loading == false) && (isDone == false)">Could not find any new achievements.</div>
+        
+        <br>
+        <button class="button button-balanced done_btn" ng-click="onDone()" ng-if="(collect.loading == false) && (isDone == false)">Done</button>
+       <!-- <button class="button button-balanced collect_btn" ng-click="onReward()" ng-if="IsReward">Reward</button>
+        
+        <div class="tabs tabs-dark">
+            <a class="tab-item" ng-click="onTabCollect()" style="border-right:1px solid #333;">Collect</a>
+            <a class="tab-item" ng-click="onTabReward()">Rewards</a>
+        </div>
+         -->
+    </ion-content>
+</ion-view>

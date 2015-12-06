@@ -1,0 +1,17 @@
+<ion-view view-title="Signin">
+  <ion-content class="sign_content" scroll="false">
+    <img src="img/logo.png" class="logo_img" />
+    <button class="button button-positive fb_btn" ng-click="onFBSignin()">Sign in with Facebook</button>
+    <img src="img/or.png" class="or_img" />
+    <div class="list signin_form">
+        <label class="item item-input">
+            <input type="email" placeholder="E-mail or username" ng-model="user.email">
+        </label>
+        <label class="item item-input" style="margin-top:10px;" >
+            <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+        <button class="button button-block button-balanced signin_btn" ng-click="onSignin()">Sign in</button>
+    </div>
+    <div class="signup_txt" ng-click="onSignup()">Sign up on claimony.com</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,118 @@
+<ion-view view-title="Collect">
+    
+    <ion-content class="detail_content" scroll="false" on-swipe-right="onBack()">
+        <div class="bar bar-header custom_bar" style="background:black;">
+            <div class="row header_row">
+                <div class="col-25" style="text-align:left;" ng-click="openHelp()"><img src="img/q.png" class="q_icon"/></div>
+                <div class="col-50 header_title">
+                    <div class="row" style="padding:0px;">
+                        <div class="col">{{userInfo.currentcredits}}&nbsp;<img src="img/custom_logo.png" class="c_logo"/></div>
+                    </div>
+                </div>
+                <div class="col-25" style="text-align:right;">
+                    <a>
+                        <img class="profile_img" ng-src="{{userInfo.images.profile}}" err-src="img/logo.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bar bar-subheader sub_header" >
+            <div class="row subheader_row">
+                <div class="col-50 subheader_title " ng-click="onBack()" style="border-right:1px solid #00aa56;">
+                    Collect
+                </div>
+                <div class="col-50 subheader_title tab_actived" >
+                    Rewards
+                </div>
+            </div>
+        </div>
+        
+        <ion-scroll zooming="false" direction="y" style="width:100%; height:85%; margin-top:95px;">
+            <ion-list>
+                <ion-item class="reward_list_item" ng-repeat="item in rewardList">
+                    <div class="row" style="padding:10px;height:85px;"  ng-click="onClickExpend($index)">
+                        <div class="col-25" class="reward_img_rect">
+                            <img class="reward_img" src="{{item.image}}" style="background:{{item.color}}"></img>
+                            <div class="middle_line" ng-if="(item.salesprice !='') && (item.listprice != '')"></div>
+                            <div class="listprice_txt" ng-if="item.salesprice !=''">{{item.listprice}}</div>
+                            <div class="salesprice_txt">{{item.salesprice}}</div>
+                            <div class="state_txt" style="background:{{item.color}}" ng-if="item.state == 'Upcoming'">{{item.state}}</div>
+                            <div class="state_txt" style="background:{{item.color}}" ng-if="item.state == 'Last call'">{{item.state}}</div>
+                            <div class="state_txt" style="background:{{item.color}}" ng-if="item.state == 'Missed IT'">{{item.state}}</div>
+                            <div class="state_txt" style="background:{{item.color}}" ng-if="item.state == 'Competition'">{{item.state}}</div>
+                        </div>
+                        <div class="col-70" style="margin-top:15px; ">
+                            <div class="reward_title">{{item.title}}</div>
+                            
+                            <div class="row reward_credit" style="padding:0px;" ng-if="item.name !==''">
+                                <div class="col">{{item.name}}</div>
+                            </div>
+                           <!-- <div class="row reward_credit" style="padding:0px;" ng-if="(item.credit !=='') && (item.state != 'Upcoming')">
+                                <div class="col-50">{{item.credit}}&nbsp;<img src="img/gray_logo.png" style="width:10px; height:10px;"/></div>
+                                <div class="col-50">{{item.date}}</div>
+                            </div>
+                            
+                            <div class="row reward_credit" style="padding:0px;font-size:0.6em;" ng-if="item.state == 'Upcoming'">
+                                <div class="col-50">{{item.startTime}} ~</div>
+                                <div class="col-50">{{item.endTime}}</div>
+                            </div> -->
+                           
+                           <div class="row reward_credit" style="padding:0px;" ng-if="(item.state == 'Upcoming') && (item.startTime != '')">
+                               
+                               <div class="col-50">{{item.credit}}&nbsp;<img src="img/gray_logo.png" style="width:10px; height:10px;"/></div>
+                               <div class="col-50">
+                                   <div class="row" style="padding:0px; margin-top:-5px;font-size:0.6em;">
+                                       <div class="col" style="padding:0px">{{item.startTime}} ~<br>{{item.endTime}}</div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row reward_credit" style="padding:0px;" ng-if="(item.state == 'Upcoming') && (item.startTime == '')">
+                               <div class="col-50">{{item.countdown}}</div>
+                           </div>
+                           
+                           <div class="row reward_credit" style="padding:0px;" ng-if="item.state == 'ACTIVE'">
+                               <div class="col-50">{{item.credit}}&nbsp;<img src="img/gray_logo.png" style="width:10px; height:10px;"/></div>
+                               <div class="col-50">{{item.date}}</div>
+                           </div>
+                           
+                           <div class="row reward_credit" style="padding:0px;" ng-if="item.state == 'Last call'">
+                               <div class="col-50">{{item.credit}}&nbsp;<img src="img/gray_logo.png" style="width:10px; height:10px;"/></div>
+                               <div class="col-50">{{item.date}}</div>
+                           </div>
+                           
+                           <div class="row reward_credit" style="padding:0px;" ng-if="item.state == 'Missed IT'">
+                           </div>
+                        </div>
+                        <div class="col-5">
+                            <img src="img/green_dot.png" style="height:25px; margin-top:15px;" ng-hide=
+                            "item.isExpend"/>
+                            <img src="img/gray_dot.png" style="height:25px; margin-top:15px;" ng-show=
+                            "item.isExpend"/>
+                        </div>
+                    </div>
+                    
+                    <div class="row" style="background:#292a2f; color:white; width:100%; padding:0px;" ng-show="item.isExpend">
+                        <div class="col">
+                            <div class="row" style="margin-top:10px; margin-bottom:10px; font-size:0.9em;">
+                                <div class="col-33">Sponsor:</div>
+                                <div class="col-67" style="color:#00da6f">{{item.brand}}</div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col" style="font-size:0.8em;">
+                                    <div style="white-space:normal !important" ng-bind-html="item.description">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="row" style="margin-top:10px; margin-bottom:10px; color:#00da6f; font-size:0.9em;"  ng-click="openURL($index)">
+                                <div class="col">Visit on Claimony</div>
+                            </div>
+                             -->
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+    </ion-content>
+</ion-view>
